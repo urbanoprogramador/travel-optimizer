@@ -1,7 +1,7 @@
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
-import { PathsService } from '../paths/paths.service';
 import { Path } from '../paths/entities/path.entity';
 import { StationsService } from '../stations/stations.service';
+import { PathsService } from '../paths/paths.service';
 
 @Injectable()
 export class PathSeedService {

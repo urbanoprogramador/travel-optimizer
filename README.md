@@ -1,73 +1,103 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Travel Optimizer API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Parte 1: Introducción
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Introducción
 
-## Description
+Hola, mi nombre es Roimar Urbano y trabajo en Accenture. Este proyecto es una API desarrollada con NestJS para optimizar rutas de viaje entre estaciones. Utiliza Swagger para la documentación de la API, asegurando que los endpoints estén bien documentados y sean fáciles de utilizar.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Descripción
 
-## Installation
+El proyecto incluye varios endpoints para gestionar estaciones y rutas, así como para obtener el camino óptimo entre dos estaciones dadas. También incluye servicios de semillas para inicializar la base de datos con datos de prueba.
+
+# Parte 2: Instalación
+
+## Instalación
+
+Para instalar y ejecutar este proyecto localmente, sigue los siguientes pasos:
+
+1. Clona el repositorio:
 
 ```bash
-$ npm install
+   git clone https://github.com/tu-usuario/travel-optimizer-api.git
+   cd travel-optimizer-api
 ```
 
-## Running the app
+2. Instala las dependencias:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+   npm install
 ```
 
-## Test
+3. Inicia la aplicación:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+ npm run start
 ```
 
-## Support
+4. Para iniciar la aplicación en modo de desarrollo:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+  npm run start:dev
+```
 
-## Stay in touch
+# Parte 3: Documentación de la API
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Documentación de la API
 
-## License
+La documentación de la API está disponible en Swagger (http://localhost:3000/swagger). Aquí puedes encontrar información detallada sobre todos los endpoints disponibles y cómo interactuar con ellos.
 
-Nest is [MIT licensed](LICENSE).
+# Parte 4: Endpoints
+
+## Endpoints
+
+### Estaciones
+
+- **PUT /stations/:id**: Crear o actualizar una estación.
+- **GET /stations**: Obtener todas las estaciones.
+- **GET /stations/:id**: Obtener una estación por ID.
+
+### Rutas
+
+- **PUT /paths/:id**: Crear o actualizar una ruta.
+- **GET /paths**: Obtener todas las rutas.
+- **GET /paths/:id**: Obtener una ruta por ID.
+- **GET /paths/:sourceId/:destinationId**: Obtener el camino óptimo entre dos estaciones.
+
+### Semillas
+
+- **GET /seed**: Inicializar la base de datos con datos de estaciones.
+- **GET /seed/paths**: Inicializar la base de datos con datos de rutas.
+
+# Parte 5: Pruebas
+
+## Pruebas
+
+Para ejecutar las pruebas, utiliza el siguiente comando:
+
+```bash
+npm run test:e2e
+```
+
+# Parte 6: Docker
+
+## Docker
+
+Para ejecutar la aplicación usando Docker, sigue estos pasos:
+
+1. Construye y levanta los contenedores:
+
+```bash
+docker-compose up --build
+```
+
+2. Si los contenedores ya están construidos y solo deseas levantarlos:
+
+```bash
+docker-compose up
+```
+3. Para ejecutar las pruebas:
+
+```bash
+docker-compose run test
+```
