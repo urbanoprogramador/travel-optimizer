@@ -1,9 +1,12 @@
 import { Module } from '@nestjs/common';
-import { PathsController } from './paths.controller';
 import { PathsService } from './paths.service';
+import { PathsController } from './paths.controller';
+import { StationsModule } from '../stations/stations.module';
 
 @Module({
+  imports: [StationsModule],
   controllers: [PathsController],
-  providers: [PathsService]
+  providers: [PathsService],
+  exports: [PathsService],
 })
 export class PathsModule {}
