@@ -50,6 +50,16 @@ describe('PathsController (e2e)', () => {
       });
   });
 
+  it('/paths/:sourceId/:destinationId (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/paths/10/12')
+      .expect(200)
+      .expect((res) => {
+        expect(res.body.path).toEqual([10, 13, 12]);
+        expect(res.body.cost).toBe(80);
+      });
+  });
+
   afterAll(async () => {
     await app.close();
   });

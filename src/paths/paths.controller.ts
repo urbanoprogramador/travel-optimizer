@@ -38,4 +38,12 @@ export class PathsController {
   findAll(): Path[] {
     return this.pathsService.findAll();
   }
+
+  @Get(':sourceId/:destinationId')
+  findOptimalPath(
+    @Param('sourceId', ParseIntPipe) sourceId: number,
+    @Param('destinationId', ParseIntPipe) destinationId: number,
+  ) {
+    return this.pathsService.findOptimalPath(sourceId, destinationId);
+  }
 }
